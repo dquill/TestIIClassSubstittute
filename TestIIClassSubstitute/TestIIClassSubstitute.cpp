@@ -16,9 +16,15 @@ int main()
     intruderInstantiator = IntruderInstantiator::getIntruderInstatiator(&intrudingAircraft);
 
     // make Aircrafts
+    Aircraft plane1("1", "192.168.0.1");
+    Aircraft plane2("2", "192.168.0.2");
+    Aircraft plane3("3", "192.168.0.3");
     
 
     // put pointers to them in intrudingAircraft map
+    intrudingAircraft.insert(&plane1);
+    intrudingAircraft.insert(&plane2);
+    intrudingAircraft.insert(&plane3);
 
 
     // call updateDrawnIntrudersCallback()
