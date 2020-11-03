@@ -6,7 +6,7 @@
 
 #include "Aircraft.h";
 
-
+void updateDrawnIntrudersCallback();
 
 class IntruderInstantiator
 {

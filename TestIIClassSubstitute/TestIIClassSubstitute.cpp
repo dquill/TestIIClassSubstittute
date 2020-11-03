@@ -3,18 +3,46 @@
 
 #include <iostream>
 
+#include "Aircraft.h"
+#include "IntruderInstantiator.h"
+
+concurrency::concurrent_unordered_map<std::string, Aircraft*> intrudingAircraft;
+IntruderInstantiator* intruderInstantiator;
+void printIntrudersMap();
+
 int main()
 {
+
+    intruderInstantiator = IntruderInstantiator::getIntruderInstatiator(&intrudingAircraft);
+
+    // make Aircrafts
+    
+
+    // put pointers to them in intrudingAircraft map
+
+
+    // call updateDrawnIntrudersCallback()
+    updateDrawnIntrudersCallback();
+
+    // ask intruderInstantiator to output the contents of the map
+    intruderInstantiator->printDrawnIntrudersMap();
+
+
     std::cout << "Hello World!\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void printIntrudersMap() {
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    static const char* EnumStrings[] = { "NON_THREAT_TRAFFIC", "PROXIMITY_INTRUDER_TRAFFIC", "TRAFFIC_ADVISORY", "RESOLUTION_ADVISORY" };
+
+    std::cout << "Contents of interudersMap:" << std::endl;
+    for (auto iter : intrudingAircraft) {
+
+        Aircraft* intruder = iter.second;
+        
+        std::cout << intruder->id << std::endl;
+    }
+    std::cout << "End Map" << std::endl;
+}
+
+

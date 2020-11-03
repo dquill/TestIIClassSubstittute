@@ -101,8 +101,8 @@ void IntruderInstantiator::printDrawnIntrudersMap() {
 	for (auto iter : drawnIntrudersMap) {
 
 		Aircraft* drawnintruder = iter.second;
-
-		std::cout << drawnintruder->id <<  ", threat: " << EnumStrings[drawnintruder->threatClassification] << std::endl;
+		std::cout << ThreatClassification::drawnintruder->threatClassification << std::endl;
+		std::cout << drawnintruder->id <<  ", threat: " << drawnintruder->threatClassification << std::endl;
 	}
 	std::cout << "End Map" << std::endl;
 }
