@@ -42,7 +42,6 @@ void IntruderInstantiator::updateDrawnIntruders()
 	//iterate through intrudersMap
 	for (auto iter : *this->intrudersMap)
 	{
-
 		//if threat classification of aircraft >= TRAFFIC_ADVISORY
 		if (iter.second->threatClassification >= Aircraft::ThreatClassification::TRAFFIC_ADVISORY)
 		{
@@ -97,12 +96,12 @@ void IntruderInstantiator::printDrawnIntrudersMap() {
 
 	static const char * EnumStrings[] = { "NON_THREAT_TRAFFIC", "PROXIMITY_INTRUDER_TRAFFIC", "TRAFFIC_ADVISORY", "RESOLUTION_ADVISORY" };
 
-	std::cout << "Contents of drawnInterudersMap:" << std::endl;
+	std::cout << "Contents of drawnIntrudersMap:" << std::endl;
 	for (auto iter : drawnIntrudersMap) {
 
 		Aircraft* drawnintruder = iter.second;
-		std::cout << ThreatClassification::drawnintruder->threatClassification << std::endl;
-		std::cout << drawnintruder->id <<  ", threat: " << drawnintruder->threatClassification << std::endl;
+		std::cout << EnumStrings[(int)drawnintruder->threatClassification] << std::endl;
+		std::cout << drawnintruder->id <<  ", threat: " << EnumStrings[(int)drawnintruder->threatClassification] << std::endl;
 	}
 	std::cout << "End Map" << std::endl;
 }
