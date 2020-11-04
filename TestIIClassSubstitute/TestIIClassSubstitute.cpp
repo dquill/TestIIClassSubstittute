@@ -25,34 +25,19 @@ int main()
     plane1->threatClassification = Aircraft::ThreatClassification::TRAFFIC_ADVISORY;
     plane2->threatClassification = Aircraft::ThreatClassification::RESOLUTION_ADVISORY;
 
-    
-
-   
+    // put pointers to them in intrudingAircraft map
     //intrudingAircraft.insert(&plane1); insert() for a map requires a key,value pair. 
     // if you really want to use insert, you need to use make_pair() to create a key,value pair. 
-    // and if you want to remove the compiler warning about ignoring the returned object you either cast the entire call to void
+    // and if you want to remove the compiler warning about ignoring the object you either cast the entire call to void
     // or create a std::pair<iterator, bool> to catch the return for inspection. iterator.second would be the bool to see 
     // if the value added to the map. 
     // lets try doing an add this way just for fun, though I'd argue that just doing intrudingAircraft[plane1->id] = plane1; is easier
 
     typedef concurrency::concurrent_unordered_map<std::string, Aircraft*>::iterator addIterator; // create a iterator for a <string,Aircraft*> map
-    // now addIterator is that iterator's type, achieved by using typedef
+    // now addIterator is that iterator's type
 
     // create the std::pair<iterator,bool> we need to catch the result of our map insertion
     std::pair<addIterator, bool> result;
-
-    // use std::make_pair() to make the key, value pair that the insert() function wants to get, and feed that to insert()
-    result = intrudingAircraft.insert(std::make_pair(plane1->id,plane1));
-
-    // test if the insert suceeded or failed
-    if (result.second == true) {
-        std::cout << "Added a plane to intrudingAircraft map" << std::endl;
-    }
-
-    // lets do these insertions the easy way, using the [] operator
-    intrudingAircraft[plane2->id] = plane2;
-    intrudingAircraft[plane3->id] = plane3;
-
 
     // call updateDrawnIntrudersCallback()
     updateDrawnIntrudersCallback();
@@ -62,7 +47,6 @@ int main()
 
 
     std::cout << "Hello World!\n";
-    system("pause");
 }
 
 void printIntrudersMap() {
