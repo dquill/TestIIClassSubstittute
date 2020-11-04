@@ -4,7 +4,7 @@
 #include<concrt.h>
 #include<concurrent_unordered_map.h>
 
-#include "Aircraft.h";
+#include "Aircraft.h"
 
 void updateDrawnIntrudersCallback();
 

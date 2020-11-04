@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <mutex>
+
 
 class Aircraft
 {
@@ -14,7 +14,7 @@ public:
 	std::string id;
 	std::string ip;
 	std::string location;
-	std::mutex lock;
+
 
 	ThreatClassification threatClassification = Aircraft::ThreatClassification::NON_THREAT_TRAFFIC;
 

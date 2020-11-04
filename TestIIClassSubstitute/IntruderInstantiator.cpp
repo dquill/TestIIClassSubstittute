@@ -83,8 +83,7 @@ void IntruderInstantiator::updateDrawnIntruders()
 
 void IntruderInstantiator::addDrawnIntruder(Aircraft* intruder)
 {
-	//add the intruder to drawnIntrudersMap
-	(drawnIntrudersMap)[intruder->id] = intruder;
+	drawnIntrudersMap[intruder->id] = intruder;
 }
 
 void IntruderInstantiator::removeDrawnIntruder(Aircraft* intruder)
@@ -95,14 +94,12 @@ void IntruderInstantiator::removeDrawnIntruder(Aircraft* intruder)
 
 void IntruderInstantiator::printDrawnIntrudersMap() {
 
-	static const char * EnumStrings[] = { "NON_THREAT_TRAFFIC", "PROXIMITY_INTRUDER_TRAFFIC", "TRAFFIC_ADVISORY", "RESOLUTION_ADVISORY" };
 
 	std::cout << "Contents of drawnInterudersMap:" << std::endl;
 	for (auto iter : drawnIntrudersMap) {
 
-		Aircraft* drawnintruder = iter.second;
-		std::cout << ThreatClassification::drawnintruder->threatClassification << std::endl;
-		std::cout << drawnintruder->id <<  ", threat: " << drawnintruder->threatClassification << std::endl;
+		Aircraft* drawnintruder = iter.second;		
+		std::cout << drawnintruder->id <<  std::endl;
 	}
 	std::cout << "End Map" << std::endl;
 }
