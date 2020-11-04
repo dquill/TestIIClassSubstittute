@@ -16,13 +16,9 @@ int main()
     intruderInstantiator = IntruderInstantiator::getIntruderInstatiator(&intrudingAircraft);
 
     // make Aircraft
-    Aircraft plane1("1", "192.168.0.1");
-    Aircraft plane2("2", "192.168.0.2");
-    Aircraft plane3("3", "192.168.0.3");
-    //How do I give a threat classification to a constructor?
-    //Aircraft plane1("1", "192.168.0.1", "location", TRAFFIC_ADVISORY);
-    //Aircraft plane2("2", "192.168.0.2", "location", TRAFFIC_ADVISORY);
-    //Aircraft plane3("3", "192.168.0.3", "location", TRAFFIC_ADVISORY);
+    Aircraft plane1("1", "192.168.0.1", "location", Aircraft::ThreatClassification::TRAFFIC_ADVISORY);
+    Aircraft plane2("2", "192.168.0.2", "location", Aircraft::ThreatClassification::NON_THREAT_TRAFFIC);
+    Aircraft plane3("3", "192.168.0.3", "location", Aircraft::ThreatClassification::TRAFFIC_ADVISORY);
     
 
     // put pointers to them in intrudingAircraft map
