@@ -15,7 +15,7 @@ public:
 	std::string ip;
 	std::string location;
 
-
+	
 	ThreatClassification threatClassification = Aircraft::ThreatClassification::NON_THREAT_TRAFFIC;
 
 };
